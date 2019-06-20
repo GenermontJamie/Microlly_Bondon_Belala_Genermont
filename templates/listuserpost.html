@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+<!-- Héritage de template ? Block(s) ? -->
+{% block main %}
+<div class="grid">
+
+{% for user in users %}
+<div class="card-body">
+    <article>
+        <h2> {{user.title}} </h2>
+        <a href = "/editpost/{{user.id}}/">Edit</a>
+        <div class="description">
+            <dt>Body:</dt>
+                <dd> {{user.body}}</dd>
+        </div>
+
+        <div class="card">
+            <img src="" alt="" />
+            <dl>
+                
+                <dt>Created At</dt>
+                <dd> {{user.created_at}}</dd>
+                <dt>Modified At</dt>
+                <dd> {{user.modified_at}}</dd>
+                <dt>User</dt>
+                <dd> {{user.user.username}}</dd>
+            </dl>
+        </div>
+    </article>
+</div>
+{% endfor %}
+    
+
+    
+</div>
+
+{% endblock %}

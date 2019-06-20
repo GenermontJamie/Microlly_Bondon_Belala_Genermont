@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="card-body">
+<h1>New Post</h1>
+
+<form method="POST">
+   {% for field in form %}
+       {% if field.widget.input_type != 'hidden' %}
+           <br>
+           {{ field.label() }}
+           {% if field.errors %}
+               {% for error in field.errors %}
+                   <div class="alert alert-error">{{ error }}</div>
+               {% endfor %}
+               <br>
+           {% endif %}
+       {% endif %}
+       {{ field() }}
+       <br>
+   {% endfor %}
+  
+   <button type="submit"  class="btn btn-success">Post</button>
+</form>
+</div>
+{% endblock %}

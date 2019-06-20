@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="card-body">
+<h1>Login - NOT IMPLEMENTED</h1>
+
+<form method="POST">
+   {% for field in form %}
+       {% if field.widget.input_type != 'hidden' %}
+           <br>
+           {{ field.label() }}
+           {% if field.errors %}
+               {% for error in field.errors %}
+                   <div class="alert alert-error">{{ error }}</div>
+               {% endfor %}
+               <br>
+           {% endif %}
+       {% endif %}
+       {{ field() }}
+       <br>
+   {% endfor %}
+  
+   <button type="submit">Login</button>
+</form>
+</div>
+{% endblock %}

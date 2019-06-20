@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %} - Microlly</title>
+        <meta charset="utf-8" />
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}" />
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}" />
+    	<!--Bootsrap 4 CDN-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        
+        <!--Fontawesome CDN-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    </head>
+<body style="background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');">
+        <h1><a href="/">Microlly</a></h1>
+        {% with messages = get_flashed_messages() %}
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    {% if messages %}
+                        <ul class=flashes>
+                        {% for message in messages %}
+                        <li>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% endwith %}
+                    <div>
+                    <a href = "/newuser/">Register</a>
+                    <a href = "/login/">Login</a>
+                    </div>
+                    <div>
+                    <a href = "/newpost/">New Post</a>
+                    </div>
+                    
+                </div>
+                {% block main %}{% endblock %}
+                <div class="card-footer">
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
